@@ -149,6 +149,12 @@ var addPolitician = function(data) {
         a3.target = '_blank';
         li3.appendChild(a3);
         ul.appendChild(li3);
+
+        a3.addEventListener('click', function(e) {
+            e.preventDefault();
+            var username = a3.href.substr(20);
+            window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(".@"+username+TWEET_TO_TEXT));
+        }, false);
     }
 
     if (data.email) {
