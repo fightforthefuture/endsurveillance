@@ -112,8 +112,10 @@ a {
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     padding: 10px 15px;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
+    font-weight: 500;
+    font-family: "Proxima Nova";
 }
 #cta input.error {
     background: #edd;
