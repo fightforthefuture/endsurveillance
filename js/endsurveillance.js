@@ -192,21 +192,21 @@ document.querySelector('#cta form').addEventListener('submit', function(e) {
     
 }, false);
 
+var validate_phone = function(num) {
+    num = num.replace(/\s/g, '').replace(/\(/g, '').replace(/\)/g, '');
+    num = num.replace("+", "").replace(/\-/g, '');
+
+    if (num.charAt(0) == "1")
+        num = num.substr(1);
+
+    if (num.length != 10)
+        return false;
+
+    return num;
+};
+
 document.querySelector('#call').addEventListener('submit', function(e) {
     e.preventDefault();
-
-    var validate_phone = function(num) {
-        num = num.replace(/\s/g, '').replace(/\(/g, '').replace(/\)/g, '');
-        num = num.replace("+", "").replace(/\-/g, '');
-
-        if (num.charAt(0) == "1")
-            num = num.substr(1);
-
-        if (num.length != 10)
-            return false;
-
-        return num;
-    };
 
     var phone = document.getElementById('phone').value;
 
@@ -232,6 +232,36 @@ document.querySelector('#call').addEventListener('submit', function(e) {
     window.location.href = '#askthem';
     document.getElementById('phone_cta').style.display = 'none';
     document.getElementById('calling').style.display = 'block';
+
+}, false);
+
+document.querySelector('#thanks_modal form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    console.log('Call submit');
+
+    var phone = document.getElementById('call_phone').value;
+
+    if (!validate_phone(phone))
+        return alert('Please enter a valid US phone number!');
+
+    var data = new FormData();
+    data.append('campaignId', 'endsurveillance');
+    data.append('zipcode', document.getElementById('cta_postcode').value);
+    data.append('userPhone', validate_phone(phone));
+
+    var url = 'https://call-congress.fightforthefuture.org/create';
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            console.log('sent!', xhr.response);
+        }
+    }.bind(this);
+    xhr.open("post", url, true);
+    xhr.send(data);
+
+    hide_modal('thanks_modal');
+    show_modal('calling_modal');
 
 }, false);
 
@@ -286,7 +316,7 @@ for (var i = 0; i < tws.length; i++) {
         window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(TWEET_TEXT));
     }, false);
 }
-var close_modals = ['pledge_modal', 'thanks_modal'];
+var close_modals = ['pledge_modal', 'thanks_modal', 'calling_modal'];
 
 for (var i=0; i<close_modals.length; i++)
     bind_hide(close_modals[i]);
