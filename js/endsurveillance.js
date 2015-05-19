@@ -1,4 +1,4 @@
-var url = 'https://spreadsheets.google.com/feeds/list/1mlikLyRrxlJDiPanWKLXbp6sUvRRsN8P_D1yWGZVc-k/default/public/values?alt=json'
+var url = 'https://spreadsheets.google.com/feeds/list/1mlikLyRrxlJDiPanWKLXbp6sUvRRsN8P_D1yWGZVc-k/default/public/values?alt=json';
 
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
@@ -68,6 +68,11 @@ var addPolitician = function(data) {
     var strong  = document.createElement('strong');
     strong.textContent = data.first_name + ' ' + data.last_name;
     a.appendChild(strong);
+    if (td1.className == 'good') {
+        var img = document.createElement('img');
+        img.src = 'images/star.png';
+        td1.appendChild(img);
+    }
     td1.appendChild(a);
     tr.appendChild(td1);
 
@@ -78,12 +83,21 @@ var addPolitician = function(data) {
 
     var td4 = document.createElement('td');
     td4.className = 'endorse';
-    if (data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_reauth.toLowerCase() == 'yes') {
+    var textContent = '';
+    if (data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_tmp_reauth.toLowerCase() == 'lean yes' || data.support_reauth.toLowerCase() == 'yes'|| data.support_reauth.toLowerCase() == 'lean yes') {
         td4.className = 'bad';
-        td4.textContent = 'YES';
-    } else if (data.support_tmp_reauth.toLowerCase() == 'no' && data.support_reauth.toLowerCase() == 'no') {
+        var textContent = 'YES';
+    } else if ((data.support_tmp_reauth.toLowerCase() == 'no' || data.support_tmp_reauth.toLowerCase() == 'lean no') && (data.support_reauth.toLowerCase() == 'no' || data.support_reauth.toLowerCase() == 'lean no')) {
         td4.className = 'good';
-        td4.textContent = 'NO';
+        var textContent = 'NO';
+    }
+    var em = document.createElement('em');
+    em.textContent = textContent;
+    td4.appendChild(em);
+    if (textContent) {
+        var span = document.createElement('span');
+        span.textContent = 'on renewing PATRIOT Act';
+        td4.appendChild(span);
     }
     tr.appendChild(td4);
 
@@ -97,7 +111,14 @@ var addPolitician = function(data) {
         td3.className = 'good';
     else if (data.support_usaf.toLowerCase() == 'lean no')
         td3.className = 'halfgood';
-    td3.textContent = data.support_usaf.toUpperCase();
+    var em2 = document.createElement('em');
+    em2.textContent = data.support_usaf.toUpperCase();
+    td3.appendChild(em2);
+    if (data.support_usaf) {
+        var span2 = document.createElement('span');
+        span2.textContent = 'on USA Freedom Act';
+        td3.appendChild(span2);
+    }
     tr.appendChild(td3);
 
     if (!data.phone)

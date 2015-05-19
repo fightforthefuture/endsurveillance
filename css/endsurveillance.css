@@ -406,6 +406,11 @@ section p {
     width: 100%;
     height: 100%;
 }
+#congress table td:first-child img {
+    position: absolute;
+    left: -24px;
+    top: 40px;
+}
 #congress table td.state {
     width: 120px;
     text-overflow: ellipsis;
@@ -428,6 +433,11 @@ section p {
     background-color: rgba(44, 188, 155, 0.5);
     color: green;
     font-size: 19px;
+}
+#congress table td span {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
 }
 #congress table td.halfgood {
     color: green;
