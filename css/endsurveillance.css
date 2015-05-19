@@ -1,0 +1,650 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* --- end public domain code --- */
+.clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clear {display: inline-block;}
+/* hide IE mac \*/
+* html .clear {height: 1%;}
+.clear {display: block;}
+/* */
+
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Proxima Nova Light'), local('Proxima-Nova-Light'), url(../fonts/proximanova-light-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Proxima Nova Regular'), local('Proxima-Nova-Regular'), url(../fonts/proximanova-regular-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Proxima Nova Semibold'), local('Proxima-Nova-Semibold'), url(../fonts/proximanova-semibold-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Proxima Nova Bold'), local('Proxima-Nova-Bold'), url(../fonts/proximanova-bold-webfont.woff) format('woff');
+}
+
+html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow: -moz-scrollbars-vertical;
+}
+body {
+    background: #fff url(../images/flag2.jpg) center top no-repeat;
+    background-size: 100% auto;
+    font-family: 'Proxima Nova';
+}
+
+a {
+    color: #44d;
+}
+
+header {
+    box-sizing: border-box;
+    padding: 30px;
+    background: white;
+    margin: 150px auto 0px auto;
+}
+header h1 {
+    text-align: center;
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 25px;
+}
+header p {
+    margin: 0px auto;
+    font-size: 19px;
+    line-height: 26px;
+    text-align: center;
+}
+header div.breaking {
+    margin: 0px auto 25px auto;
+    text-align: center;
+    background: #ffc;
+    border: 1px solid #ddb;
+    border-radius: 30px;
+    min-height: 220px;
+    padding: 20px 35px;
+    width: 650px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, .1);
+    text-align: center;
+
+}
+header div.breaking p {
+    padding-top: 5px;
+    font-size: 17px;
+    line-height: 21px;
+}
+header div.breaking h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+header div.breaking div.paul {
+    float: left;
+    margin-right: 20px;
+}
+header div.breaking div.wyden {
+    float: right;
+    margin-left: 20px;
+}
+header div.breaking div.paul img, header div.breaking div.wyden img {
+    width: 100px;
+    border-radius: 5px;
+    height: auto;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, .3);
+}
+header div.breaking button {
+    box-sizing: border-box;
+    height: 95px;
+    border: 0px none transparent;
+    color: white;
+    font-size: 19px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 0px 15px;
+    background-color: #1DAC7F;
+    cursor: pointer;
+    max-width: 330px;
+    margin-top: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, .3);
+    background: #53c09e; /* Old browsers */
+    background: -moz-linear-gradient(top, #53c09e 0%, #1dac7f 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#53c09e), color-stop(100%,#1dac7f)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #53c09e 0%,#1dac7f 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #53c09e 0%,#1dac7f 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #53c09e 0%,#1dac7f 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #53c09e 0%,#1dac7f 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#53c09e', endColorstr='#1dac7f',GradientType=0 ); /* IE6-9 */
+}
+header div.breaking button:hover {
+    background: #1DAC7F;
+}
+header div.breaking button strong {
+    
+    font-weight: bold;
+}
+
+
+#toc {
+    position: fixed;
+    top: 150px;
+    left: 0px;
+    width: 220px;
+    background: white;
+    box-sizing: border-box;
+    padding: 20px;
+}
+#toc h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#toc ul {
+    list-style-type: disc;
+}
+#toc ul li {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+#toc .social {
+    width: 115px;
+}
+#toc .social.facebook {
+    margin-top: 15px;
+}
+#toc .social.twitter {
+    margin-top: 5px;
+}
+#main {
+    max-width: 767px;
+    margin: 0px auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+}
+
+section {
+    
+    box-sizing: border-box;
+    padding: 20px 30px;
+    background: white;
+    margin: 0px auto 0px auto;
+    
+}
+section#askthem {
+    padding-top: 35px;
+    background: #844;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+section#askthem a {
+    color: white;
+    font-weight: bold;
+}
+section#askthem strong {
+    font-weight: 700;
+}
+section#getinvolved {
+    margin-top: 15px;
+    padding-top: 35px;
+    background: #446;
+    color: white;
+    text-align: center;
+    padding-bottom: 60px;
+}
+section#getinvolved a {
+    color: white;
+    font-weight: bold;
+}
+section#getinvolved img.nopad {
+    display: block;
+    margin-left: -30px;
+    margin-bottom: 40px;
+}
+section#getinvolved blockquote {
+    font-family: 'Courier New', mono;
+    font-size: 13px;
+    line-height: 17px;
+    background: rgba(0, 0, 0, .5);
+    padding: 10px 15px;
+    color: white;
+    text-align: left;
+}
+section h2 {
+    text-align: center;
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 25px;
+}
+section h3 {
+    text-align: center;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-top: 45px;
+    margin-bottom: 25px;
+}
+section p {
+    margin: 0px auto;
+    font-size: 19px;
+    line-height: 26px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+#congress table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+}
+#congress tr:nth-child(even) {
+    background: #eee;
+}
+#congress table th {
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+}
+#congress table td {
+    vertical-align: middle;
+    text-align: center;
+}
+#congress table td:first-child {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-size: 100px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#congress table td:first-child a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#congress table td.state {
+    width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#congress table td.endorse {
+    width: 150px;
+}
+#congress table td.bad {
+    background-color: #fcc;
+    color: #800;
+    font-size: 19px;
+}
+#congress table td.halfbad {
+    color: #800;
+    font-size: 19px;
+}
+#congress table td.good {
+    background-color: #ccf;
+    color: #008;
+    font-size: 19px;
+}
+#congress table td.halfgood {
+    color: #008;
+    font-size: 19px;
+}
+#congress table td:first-child.bad {
+    background-color: #ff8082;
+    background-blend-mode: multiply;
+    -moz-background-blend-mode: multiply;
+    -webkit-background-blend-mode: multiply;
+    color: #800;
+    font-size: 25px;
+}
+#congress table td:first-child.bad strong {
+    background: #400;
+}
+#congress table td:first-child.good {
+    background-color: #5b678a;
+    background-blend-mode: multiply;
+    -moz-background-blend-mode: multiply;
+    -webkit-background-blend-mode: multiply;
+    color: #008;
+    font-size: 25px;
+}
+#congress table td:first-child.good strong {
+    background: #004;
+}
+#congress table td:first-child strong {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100px;
+    background: black;
+    color: white;
+    font-size: 13px;
+    padding: 2px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+#congress table ul {
+    list-style-type: disc;
+}
+#congress table ul li {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+#call {
+    margin-bottom: 25px;
+    text-align: center;
+}
+#call input {
+    height: 50px;
+    line-height: 50px;
+    font-size: 19px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    width: 150px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    margin-right: 2px;
+}
+#call button {
+    box-sizing: border-box;
+    height: 50px;
+    border: 0px none transparent;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 0px 15px;
+    background-color: #1DAC7F;
+    cursor: pointer;
+}
+#call button:hover {
+    background-color: #0D9C6F;
+}
+#call input:first-child {
+    width: 300px;
+}
+#call span.disclosure {
+    display: block;
+    font-size: 14px;
+    margin-top: 20px;
+}
+div.share {
+    display: inline-block;
+    background: rgba(0, 0, 0, .3);
+    padding: 10px;
+    border-radius: 100px;
+}
+a.social {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    padding: 0px 15px 0px 40px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: verdana, helvetica;
+    font-weight: bold;
+}
+
+a.social::before {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: transparent url("https://s3.amazonaws.com/fftf-cms/static/campaign/img/share.png") no-repeat scroll 0px 0px / 170px 20px;
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    content: "";
+}
+a.social.facebook {
+    background: #3b5a95;
+}
+a.social.twitter {
+    background: #51c9f0;
+}
+.social.facebook::before {
+    background-position: -150px 0px;
+}
+.social.twitter::before {
+    background-position: -100px 0px;
+}
+
+.overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, .66);
+    display: none;
+    z-index: 9001;
+
+    -webkit-transition: opacity 0.4s ease-out;
+            transition: opacity 0.4s ease-out;
+}
+.overlay.invisible {
+    pointer-events: none;
+    opacity: 0;
+
+    -webkit-transition: opacity 0.4s ease-out;
+            transition: opacity 0.4s ease-out;
+}
+.overlay .gutter {
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+
+    -webkit-transition: margin-top 0.4s ease-out;
+            transition: margin-top 0.4s ease-out;
+}
+.overlay.invisible .gutter {
+    margin-top: -100%;
+}
+.overlay .gutter .modal {
+    display: inline-block;
+    max-width: 100%;
+    color: black;
+    margin: 0px auto;
+    position: relative;
+    text-align: center;
+
+    margin-top: 50px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, .3);
+}
+.overlay .gutter .modal strong {
+    font-weight: bold;
+}
+.modal a.close {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    cursor:pointer;
+    color: #fff;
+    border-radius: 30px;
+    background: black;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 35px;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    text-decoration: none;
+    opacity: .7;
+    z-index: 9002; /* A LEVEL BEYOND over 9000 */
+}
+.modal a.close:hover {
+    opacity: 1;
+}
+.modal a.close:before {
+    line-height: 35px;
+    content: "×";
+}
+.modal a.close.lite {
+    color: #e1e1e1;
+    font-size: 40px;
+    opacity: 1;
+    background: #fff;
+    font-weight: bold;
+}
+.modal a.close.lite:hover {
+    color: #ccc;
+}
+.modal .explanation {
+    background: #fff;
+    padding: 55px 0px 0px 0px;
+    font-size: 22.42px;
+    line-height: 29px;
+    max-width: 745px;
+}
+.modal .explanation img.example {
+    
+    width: 200px;
+    height: auto;
+}
+.modal .explanation p {
+    margin: 0px;
+    padding: 0px 30px 35px 30px;
+}
+.modal .explanation strong.highlight {
+    color: #ff4e52;
+}
+.modal .explanation .example {
+    background: #ededed url(../images/modal_background.png) left top repeat-x;
+    padding: 20px 15px 25px 15px;
+    font-size: 17px;
+    color: #686868;
+}
+.modal .explanation .example .tweet {
+    margin: 5px auto 20px auto;
+    max-width: 575px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 25px 25px 0px 25px;
+    font-size: 19px;
+    color: #676767;
+    text-align: left;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .1);
+}
+.modal .explanation .example .tweet em {
+    color: #66d6ff;
+    font-weight: bold;
+}
+.modal .explanation .example .tweet span {
+    text-decoration: underline;
+}
+.modal .explanation .example .tweet .byline {
+    color: #cfcfd0;
+    font-size: 10px;
+    padding-bottom: 5px;
+    margin: 0px 0px 0px 0px;
+}
+.modal .explanation .example .tweet img.thumbnail {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    float: left;
+    border-radius: 4px;
+}
+.modal .explanation .example button {
+    border: 0px;
+    background: #fe4b60;
+    height: 58px;
+    line-height: 56px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+    width: 226px;
+    cursor: pointer;
+    margin: 3px 0px;
+}
+.modal .explanation .example button:hover {
+    background: #ee3b50;
+}
+.modal .explanation .example button.gray {
+    background: #bbb;
+}
+.modal .explanation .example button.gray:hover {
+    background: #aaa;
+}
+.modal .explanation .example input {
+    display: inline-block;
+    width: 25%;
+    box-sizing: border-box;
+    border-left: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+}
+.modal .explanation .example input.long {
+    width: 50%;
+    height: 57px;
+}
+.modal .explanation .example input.right {
+    border-right: 1px solid #aaa;
+}
+.modal .explanation .example textarea {
+    width: 100%;
+    border: 1px solid #aaa;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    font-size: 14px;
+    height: 90px;
+}
+.modal .explanation .example input.error, .modal .explanation .example textarea.error {
+    background: #fee;
+}
+.modal .explanation .example span.disclaimer {
+    font-size: 13px;
+    line-height: 1em;
+}
