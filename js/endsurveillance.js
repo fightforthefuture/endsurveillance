@@ -50,7 +50,7 @@ var addPolitician = function(data) {
 
     var td1 = document.createElement('td');
 
-    if (data.support_usaf.toLowerCase() == 'yes' || data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_reauth.toLowerCase() == 'yes') {
+    if (data.support_usaf.toLowerCase() == 'yes' || data.support_usaf.toLowerCase() == 'lean yes' || data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_tmp_reauth.toLowerCase() == 'lean yes' || data.support_reauth.toLowerCase() == 'yes' || data.support_reauth.toLowerCase() == 'lean yes') {
         td1.className = 'bad';
     } else if (data.support_tmp_reauth.toLowerCase() == 'no' && data.support_reauth.toLowerCase() == 'no') {
         td1.className = 'good';
