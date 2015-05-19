@@ -408,8 +408,8 @@ section p {
 }
 #congress table td:first-child img {
     position: absolute;
-    left: -24px;
-    top: 40px;
+    left: 5px;
+    top: 5px;
 }
 #congress table td.state {
     width: 120px;
