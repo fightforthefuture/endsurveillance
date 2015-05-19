@@ -232,6 +232,16 @@ document.querySelector('#call').addEventListener('submit', function(e) {
 
 }, false);
 
+document.getElementById('tweet_paul').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(PAUL_TWEET_TEXT));
+}, false);
+
+document.getElementById('tweet_wyden').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(WYDEN_TWEET_TEXT));
+}, false);
+
 var show_modal = function(el) {
     var overlay = document.getElementById(el);
     overlay.style.display = 'block';

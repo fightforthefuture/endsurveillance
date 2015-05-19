@@ -56,7 +56,7 @@ html {
     overflow: -moz-scrollbars-vertical;
 }
 body {
-    background: #fff url(../images/flag2.jpg) center top no-repeat;
+    background: #fff url(../images/constitution.jpg) center top no-repeat;
     background-size: 100% auto;
     font-family: 'Proxima Nova';
 }
@@ -83,45 +83,47 @@ header p {
     line-height: 26px;
     text-align: center;
 }
-header div.breaking {
-    margin: 0px auto 25px auto;
+div.breaking {
+    margin: 0px auto 0px auto;
     text-align: center;
-    background: #ffc;
-    border: 1px solid #ddb;
-    border-radius: 30px;
-    min-height: 220px;
+    background: #fff6e1;
+    border-radius: 0px;
+    min-height: 205px;
     padding: 20px 35px;
-    width: 650px;
+    width: 100%;
     box-sizing: border-box;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, .1);
     text-align: center;
 
 }
-header div.breaking p {
+div.breaking strong {
+    font-weight: 500;
+}
+div.breaking p {
     padding-top: 5px;
     font-size: 17px;
     line-height: 21px;
 }
-header div.breaking h4 {
+div.breaking h4 {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 15px;
 }
-header div.breaking div.paul {
+div.breaking div.paul {
     float: left;
     margin-right: 20px;
 }
-header div.breaking div.wyden {
+div.breaking div.wyden {
     float: right;
     margin-left: 20px;
 }
-header div.breaking div.paul img, header div.breaking div.wyden img {
+div.breaking div.paul img, div.breaking div.wyden img {
     width: 100px;
     border-radius: 5px;
     height: auto;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, .3);
 }
-header div.breaking button {
+div.breaking button {
     box-sizing: border-box;
     height: 95px;
     border: 0px none transparent;
@@ -145,10 +147,10 @@ header div.breaking button {
     background: linear-gradient(to bottom, #53c09e 0%,#1dac7f 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#53c09e', endColorstr='#1dac7f',GradientType=0 ); /* IE6-9 */
 }
-header div.breaking button:hover {
+div.breaking button:hover {
     background: #1DAC7F;
 }
-header div.breaking button strong {
+div.breaking button strong {
     
     font-weight: bold;
 }
@@ -310,12 +312,12 @@ section p {
     font-size: 19px;
 }
 #congress table td.good {
-    background-color: #ccf;
-    color: #008;
+    background-color: rgba(44, 188, 155, 0.5);
+    color: green;
     font-size: 19px;
 }
 #congress table td.halfgood {
-    color: #008;
+    color: green;
     font-size: 19px;
 }
 #congress table td:first-child.bad {
@@ -330,7 +332,7 @@ section p {
     background: #400;
 }
 #congress table td:first-child.good {
-    background-color: #5b678a;
+    background-color: rgba(44, 188, 155, 0.5);
     background-blend-mode: multiply;
     -moz-background-blend-mode: multiply;
     -webkit-background-blend-mode: multiply;
@@ -647,4 +649,10 @@ a.social.twitter {
 .modal .explanation .example span.disclaimer {
     font-size: 13px;
     line-height: 1em;
+}
+
+@media screen and (max-width:1235px) {
+    #toc {
+        display: none;
+    }
 }
