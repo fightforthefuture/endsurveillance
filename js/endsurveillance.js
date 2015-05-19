@@ -116,7 +116,13 @@ var addPolitician = function(data) {
     td3.appendChild(em2);
     if (data.support_usaf) {
         var span2 = document.createElement('span');
-        span2.textContent = 'on USA Freedom Act';
+        var iem2 = document.createElement('em');
+        iem2.textContent = 'on ';
+        span2.appendChild(iem2);
+        var ia2 = document.createElement('a');
+        ia2.href = '#usaf';
+        ia2.textContent = 'USA Freedom Act';
+        span2.appendChild(ia2);
         td3.appendChild(span2);
     }
     tr.appendChild(td3);

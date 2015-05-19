@@ -439,6 +439,12 @@ section p {
     font-size: 11px;
     margin-top: 5px;
 }
+#congress table td.halfgood span a, #congress table td.good span a {
+    color: green;
+}
+#congress table td.halfbad span a, #congress table td.bad span a {
+    color: #800;
+}
 #congress table td.halfgood {
     color: green;
     font-size: 19px;
