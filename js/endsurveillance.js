@@ -76,6 +76,17 @@ var addPolitician = function(data) {
     td2.textContent = data.state;
     tr.appendChild(td2);
 
+    var td4 = document.createElement('td');
+    td4.className = 'endorse';
+    if (data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_reauth.toLowerCase() == 'yes') {
+        td4.className = 'bad';
+        td4.textContent = 'YES';
+    } else if (data.support_tmp_reauth.toLowerCase() == 'no' && data.support_reauth.toLowerCase() == 'no') {
+        td4.className = 'good';
+        td4.textContent = 'NO';
+    }
+    tr.appendChild(td4);
+
     var td3 = document.createElement('td');
     td3.className = 'endorse';
     if (data.support_usaf.toLowerCase() == 'yes')
@@ -88,17 +99,6 @@ var addPolitician = function(data) {
         td3.className = 'halfgood';
     td3.textContent = data.support_usaf.toUpperCase();
     tr.appendChild(td3);
-
-    var td4 = document.createElement('td');
-    td4.className = 'endorse';
-    if (data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_reauth.toLowerCase() == 'yes') {
-        td4.className = 'bad';
-        td4.textContent = 'YES';
-    } else if (data.support_tmp_reauth.toLowerCase() == 'no' && data.support_reauth.toLowerCase() == 'no') {
-        td4.className = 'good';
-        td4.textContent = 'NO';
-    }
-    tr.appendChild(td4);
 
     if (!data.phone)
         var phone = '202-224-3121';
