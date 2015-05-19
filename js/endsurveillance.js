@@ -112,7 +112,7 @@ var addPolitician = function(data) {
     else if (data.support_usaf.toLowerCase() == 'lean no')
         td3.className = 'halfgood';
     var em2 = document.createElement('em');
-    em2.textContent = data.support_usaf.toUpperCase();
+    em2.textContent = data.support_usaf.toUpperCase().replace('LEAN', 'LEANS');
     td3.appendChild(em2);
     if (data.support_usaf) {
         var span2 = document.createElement('span');
