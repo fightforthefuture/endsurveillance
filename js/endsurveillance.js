@@ -265,6 +265,11 @@ document.querySelector('#thanks_modal form').addEventListener('submit', function
 
 }, false);
 
+document.getElementById('petition_link').addEventListener('click', function(e) {
+    e.preventDefault();
+    show_modal('petition_modal');
+}, false);
+
 document.getElementById('tweet_paul').addEventListener('click', function(e) {
     e.preventDefault();
     window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(PAUL_TWEET_TEXT));
@@ -316,20 +321,14 @@ for (var i = 0; i < tws.length; i++) {
         window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(TWEET_TEXT));
     }, false);
 }
-var close_modals = ['pledge_modal', 'thanks_modal', 'calling_modal'];
+var close_modals = ['thanks_modal', 'calling_modal', 'petition_modal'];
 
 for (var i=0; i<close_modals.length; i++)
     bind_hide(close_modals[i]);
 
-/*
-document.getElementById('pledge_link').addEventListener('click', function(e) {
-    e.preventDefault();
-    show_modal('pledge_modal');
-}, false);
-*/
-
-if (window.location.href.indexOf('pledge=1') != -1)
-    show_modal('pledge_modal');
 
 if (window.location.href.indexOf('thanks=1') != -1)
     show_modal('thanks_modal');
+
+if (window.location.href.indexOf('petition=1') != -1)
+    show_modal('petition_modal');
