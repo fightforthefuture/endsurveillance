@@ -49,10 +49,16 @@ var addPolitician = function(data) {
     var tr = document.createElement('tr');
 
     var td1 = document.createElement('td');
-    
+
     if (data.support_usaf.toLowerCase() == 'yes' || data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_reauth.toLowerCase() == 'yes') {
         td1.className = 'bad';
     } else if (data.support_tmp_reauth.toLowerCase() == 'no' && data.support_reauth.toLowerCase() == 'no') {
+        td1.className = 'good';
+    } else if (
+        ((data.support_usaf.toLowerCase() == 'no' || data.support_usaf.toLowerCase() == 'lean no') && data.support_reauth.toLowerCase() != 'yes' && data.support_reauth.toLowerCase() != 'lean yes' && data.support_tmp_reauth.toLowerCase() != 'yes' && data.support_tmp_reauth.toLowerCase() != 'lean yes')
+        ||
+        (data.support_usaf.toLowerCase() != 'yes' && data.support_usaf.toLowerCase() != 'lean yes' && (data.support_reauth.toLowerCase() == 'no' || data.support_reauth.toLowerCase() == 'lean no' || data.support_tmp_reauth.toLowerCase() == 'no' || data.support_tmp_reauth.toLowerCase() == 'lean no'))
+    ) {
         td1.className = 'good';
     }
     td1.style.backgroundImage = 'url(congress/'+data.image+')';
@@ -283,9 +289,11 @@ var close_modals = ['pledge_modal', 'thanks_modal'];
 for (var i=0; i<close_modals.length; i++)
     bind_hide(close_modals[i]);
 
+/*
 document.getElementById('pledge').addEventListener('click', function(e) {
     show_modal('pledge_modal');
 }, false);
+*/
 
 document.getElementById('pledge_link').addEventListener('click', function(e) {
     e.preventDefault();
