@@ -66,12 +66,12 @@ a {
 }
 
 #cta {
-    width: 100%;
     background: #600;
-    height: 375px;
-    text-align: center;
-    display: none;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+    display: none;
+    padding: 0 0 8px;
+    text-align: center;
+    width: 100%;
 }
 #cta h1 {
     font-weight: 500;
