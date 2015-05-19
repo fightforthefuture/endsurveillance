@@ -158,10 +158,10 @@ body.cta #cta {
     display: block;
 }
 body.cta header {
-    margin-top: 70px;
+    margin-top: 50px;
 }
 body.cta #toc {
-    top: 445px;
+    top: 425px;
 }
 body.cta strong {
     font-weight: 500;
