@@ -165,7 +165,7 @@ header {
     margin: 150px auto 0px auto;
 }
 body.cta {
-    background-position: center 265px;
+    background-position: center 275px;
 }
 body.cta #cta {
     display: block;
@@ -174,7 +174,7 @@ body.cta header {
     margin-top: 50px;
 }
 body.cta #toc {
-    top: 425px;
+    top: 433px;
 }
 body.cta strong {
     font-weight: 500;
