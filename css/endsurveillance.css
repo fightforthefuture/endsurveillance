@@ -722,7 +722,9 @@ a.social.twitter {
     border-bottom: 1px solid #aaa;
     margin-bottom: 5px;
     padding: 10px 15px;
-    font-size: 18px;
+    font-size: 19px;
+    font-family: "Proxima Nova";
+    font-weight: 500;
 }
 .modal .explanation .example input.long {
     width: 50%;
