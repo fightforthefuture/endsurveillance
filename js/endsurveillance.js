@@ -139,16 +139,15 @@ var addPolitician = function(data) {
     document.getElementById('table').appendChild(tr);
 }
 
-document.querySelector('#pledge_modal form').addEventListener('submit', function(e) {
+document.querySelector('#cta form').addEventListener('submit', function(e) {
     e.preventDefault();
 
     var error = false;
 
-    var first_name = document.getElementById('first_name');
-    var email = document.getElementById('email');
-    var address1 = document.getElementById('street_address');
-    var zip = document.getElementById('postcode');
-    var action_comment = document.getElementById('action_comment');
+    var first_name = document.getElementById('cta_first_name');
+    var email = document.getElementById('cta_email');
+    var address1 = document.getElementById('cta_street_address');
+    var zip = document.getElementById('cta_postcode');
 
     var add_error = function(el) {
         console.log('error: ', el);
@@ -160,13 +159,8 @@ document.querySelector('#pledge_modal form').addEventListener('submit', function
     if (!email.value) add_error(email);
     if (!address1.value) add_error(address1);
     if (!zip.value) add_error(zip);
-    if (!action_comment.value) add_error(action_comment);
 
     if (error) return alert('Please fill out all fields :)');
-
-    var comment = action_comment.value;
-
-    console.log('comment: ', comment);
 
     var data = new FormData();
     data.append('guard', '');
@@ -175,13 +169,13 @@ document.querySelector('#pledge_modal form').addEventListener('submit', function
     data.append('member[email]', email.value);
     data.append('member[street_address]', address1.value);
     data.append('member[postcode]', zip.value);
-    data.append('action_comment', comment);
+    data.append('action_comment', 'Please overturn Section 215 of the PATRIOT Act and Section 702 of the Foreign Intelligence Surveillance Act. These legal rules have been twisted by government agencies to allow mass spying of U.S. citizens without a warrant or any suspicion of wrongdoing. The so-called USA FREEDOM Act would only make matters worse, by creating new legal loopholes for the NSA and law enforcement agencies to collect even more data on millions of Americans. I am calling on you to oppose the USA FREEDOM Act, let the PATRIOT Act expire, and end mass surveillance by the U.S. government.');
+    data.append('subject', 'Please oppose the USA FREEDOM Act and end mass surveillance.');
     data.append('org', 'fftf');
-    data.append('opt_out', 1);
-    data.append('tag', 'patriot-act-filibuster');
+    data.append('subject', 'endsurveillance');
+    data.append('tag', 'endsurveillance');
 
     var url = 'https://queue.fightforthefuture.org/action';
-    hide_modal('pledge_modal');
     show_modal('thanks_modal');
 
     var xhr = new XMLHttpRequest();
@@ -192,6 +186,9 @@ document.querySelector('#pledge_modal form').addEventListener('submit', function
     }.bind(this);
     xhr.open("post", url, true);
     xhr.send(data);
+
+    document.getElementById('fields').style.display = 'none';
+    document.getElementById('cta_thanks').style.display = 'block';
     
 }, false);
 
@@ -248,6 +245,11 @@ document.getElementById('tweet_wyden').addEventListener('click', function(e) {
     window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(WYDEN_TWEET_TEXT));
 }, false);
 
+document.getElementById('cta_call').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = '#askthem';
+}, false);
+
 var show_modal = function(el) {
     var overlay = document.getElementById(el);
     overlay.style.display = 'block';
@@ -290,15 +292,11 @@ for (var i=0; i<close_modals.length; i++)
     bind_hide(close_modals[i]);
 
 /*
-document.getElementById('pledge').addEventListener('click', function(e) {
-    show_modal('pledge_modal');
-}, false);
-*/
-
 document.getElementById('pledge_link').addEventListener('click', function(e) {
     e.preventDefault();
     show_modal('pledge_modal');
 }, false);
+*/
 
 if (window.location.href.indexOf('pledge=1') != -1)
     show_modal('pledge_modal');

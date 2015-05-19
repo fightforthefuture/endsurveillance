@@ -26,19 +26,54 @@
 </script>
 
 </head>
-<body>
+<body class="cta">
+
+<script type="text/javascript">
+    if (document.referrer.indexOf('reddit.com') != -1) {
+        document.body.className = '';
+    }
+</script>
 
 <div id="toc">
     <h3>Table of Contents</h3>
     <ul>
         <li><a href="#congress">The chart</a></li>
-        <li><a href="#askthem">Ask your senators</a></li>
+        <li><a href="#askthem">Call your senators</a></li>
         <li><a href="#bills">The surveillance bills</a></li>
         <li><a href="#getinvolved">How to get involved</a></li>
     </ul>
     <a href="#" class="social facebook">Share</a>
     <a href="#" class="social twitter">Tweet</a>
 </div>
+
+<div id="cta">
+    <h1>Congress is voting on the PATRIOT Act.</h1>
+    <p>
+        For years, the NSA has used the PATRIOT Act as its justification to monitor
+        the communications
+        of millions of innocent civilians. <strong>Tell Congress: overturn the PATRIOT
+        Act and stop mass surveillance by the NSA.</strong>
+    </p>
+    <div id="fields" style="display: block;">
+        <form id="email_form" method="post">
+            <input id="cta_first_name" type="text" placeholder="Your name"/><input id="cta_email" type="text" placeholder="Email"/><input id="cta_street_address" type="text" placeholder="Street Address"/><input id="cta_postcode" type="text" placeholder="Zip" class="right"/>
+            <button id="cta_email" type="submit">Email Congress</button>
+        </form>
+        <p class="disclosure">
+            <a href="https://www.fightforthefuture.org" target="_blank">Fight for the Future</a> will send this
+            petition to your lawmakers. We will email you with campaign updates.
+            <a href="https://www.fightforthefuture.org/privacy" target="_blank">Privay Policy.</a>
+        </p>
+    </div>
+    <div id="cta_thanks" style="display: none;">
+        <h2>Thanks! Now, can you call Congress?</h2>
+        <p>
+            The Senate could be voting today. Make your voice heard!
+        </p>
+        <button id="cta_call">Call Congress</button>
+    </div>
+</div>
+
 
 <div id="main">
 
@@ -56,7 +91,7 @@
         surveillance bills.
     </p>
 </header>
-<div class="breaking">
+<div class="breaking" id="breaking">
     <h4>BREAKING: Rand Paul and Ron Wyden to filibuster the Patriot Act!</h4>
     <div class="paul"><img src="images/paul.jpg"/></div>
     <div class="wyden"><img src="images/wyden.jpg"/></div>
@@ -206,8 +241,7 @@
     <p>
         Senators Rand Paul and Ron Wyden have vowed to filibuster any reauthorization
         of the PATRIOT Act. This could be the only hope of killing these surveillance
-        bills. <a href="#" id="pledge_link">Pledge to support their campaigns if they filibuster
-        the PATRIOT Act!</a>
+        bills. <a href="#breaking">Send them your words of support!</a>
     </p>
     <div class="share">
         <a href="#" class="social facebook">Share this page</a>
@@ -257,7 +291,7 @@ I pledge to donate $15.00 to your campaign if you filibuster the PATRIOT Act. En
             <a class="close lite"></a>
             <div class="explanation">
                 <p>
-                    <strong>Thanks! We'll deliver your pledge.</strong>
+                    <strong>Thanks! We'll deliver your response.</strong>
                     <br/>
                     This could be our last chance to stop the PATRIOT Act and NSA
                     mass surveillance for years.
