@@ -21,7 +21,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 .clear {display: block;}
 /* */
 
-
 @font-face {
   font-family: 'Proxima Nova';
   font-style: normal;
@@ -331,6 +330,9 @@ section#getinvolved {
     text-align: center;
     padding-bottom: 60px;
 }
+section#getinvolved a .logo {
+    max-width: 100%;
+}
 section#getinvolved a {
     color: white;
     font-weight: bold;
@@ -339,15 +341,17 @@ section#getinvolved img.nopad {
     display: block;
     margin-left: -30px;
     margin-bottom: 40px;
+    max-width: calc(100% + 60px);
 }
 section#getinvolved blockquote {
+    background: rgba(0, 0, 0, .5);
+    color: white;
     font-family: 'Courier New', mono;
     font-size: 13px;
     line-height: 17px;
-    background: rgba(0, 0, 0, .5);
     padding: 10px 15px;
-    color: white;
     text-align: left;
+    word-wrap: break-word;
 }
 section h2 {
     text-align: center;
