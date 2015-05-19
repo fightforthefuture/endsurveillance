@@ -69,9 +69,13 @@ a {
     background: #600;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
     display: none;
-    padding: 0 0 8px;
+    padding: 0 16px 8px;
     text-align: center;
     width: 100%;
+    
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 #cta h1 {
     font-weight: 500;
