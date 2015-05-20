@@ -339,6 +339,11 @@ var bind_hide = function(el) {
     );
 }
 
+var close_modals = ['thanks_modal', 'calling_modal', 'petition_modal'];
+
+for (var i=0; i<close_modals.length; i++)
+    bind_hide(close_modals[i]);
+
 var fb = document.querySelectorAll('a.facebook');
 for (var i = 0; i < fb.length; i++) {
     fb[i].addEventListener('click', function(e) {
@@ -354,10 +359,6 @@ for (var i = 0; i < tws.length; i++) {
         window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(TWEET_TEXT));
     }, false);
 }
-var close_modals = ['thanks_modal', 'calling_modal', 'petition_modal'];
-
-for (var i=0; i<close_modals.length; i++)
-    bind_hide(close_modals[i]);
 
 var tocTop = document.getElementById('toc').getBoundingClientRect().top;  
 
