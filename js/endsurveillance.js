@@ -35,7 +35,7 @@ xhr.onreadystatechange = function() {
             return 0;
         }
         politicians.sort(compare);
-        console.log(politicians);
+        // console.log(politicians);
 
         for (var i = 0; i < politicians.length; i++) {
             addPolitician(politicians[i]);
