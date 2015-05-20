@@ -360,7 +360,8 @@ for (var i = 0; i < tws.length; i++) {
     }, false);
 }
 
-var tocTop = document.getElementById('toc').getBoundingClientRect().top;  
+// var tocTop = document.getElementById('toc').getBoundingClientRect().top;  
+var tocTop = document.getElementById('toc').offsetTop;
 
 window.onscroll = function(e) {
     var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
