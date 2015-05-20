@@ -378,3 +378,6 @@ if (window.location.href.indexOf('thanks=1') != -1)
 
 if (window.location.href.indexOf('petition=1') != -1)
     show_modal('petition_modal');
+
+if (window.location.href.indexOf('protest=1') != -1)
+    window.location.href = '#protest';
