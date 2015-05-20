@@ -359,6 +359,17 @@ var close_modals = ['thanks_modal', 'calling_modal', 'petition_modal'];
 for (var i=0; i<close_modals.length; i++)
     bind_hide(close_modals[i]);
 
+var tocTop = document.getElementById('toc').getBoundingClientRect().top;  
+
+window.onscroll = function(e) {
+    var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+    if (scrollTop >= tocTop)
+        document.getElementById('toc').className = 'fixed';
+    else
+        document.getElementById('toc').className = '';
+}
+
 
 if (window.location.href.indexOf('thanks=1') != -1)
     show_modal('thanks_modal');

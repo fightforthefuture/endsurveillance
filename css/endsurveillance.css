@@ -68,9 +68,10 @@ a {
     background: #600;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
     display: none;
-    padding: 0 16px 8px;
+    padding: 0 16px 6px;
     text-align: center;
     width: 100%;
+    border-bottom: 2px solid #400;
 
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -174,7 +175,7 @@ body.cta header {
     margin-top: 50px;
 }
 body.cta #toc {
-    top: 433px;
+    top: 432px;
 }
 body.cta strong {
     font-weight: 500;
@@ -265,13 +266,19 @@ div.breaking button strong {
 
 
 #toc {
-    position: fixed;
-    top: 150px;
+    position: absolute;
     left: 0px;
     width: 220px;
     background: white;
     box-sizing: border-box;
     padding: 20px;
+}
+#toc.fixed {
+    position: fixed;
+    top: 0px;
+}
+body.cta #toc.fixed {
+    top: 0px;
 }
 #toc h3 {
     font-size: 18px;
