@@ -280,6 +280,9 @@ div.breaking button strong {
 body.cta #toc.fixed {
     top: 0px;
 }
+#toc strong {
+    font-weight: 500;
+}
 #toc h3 {
     font-size: 18px;
     font-weight: bold;
