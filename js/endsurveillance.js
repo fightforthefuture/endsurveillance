@@ -348,7 +348,7 @@ var fb = document.querySelectorAll('a.facebook');
 for (var i = 0; i < fb.length; i++) {
     fb[i].addEventListener('click', function(e) {
         e.preventDefault();
-        window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.endsurveillance.com%2F');
+        window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.endsurveillance.com%2F' + (e.target.className.indexOf('protest') != -1 ? '%3Fprotest%3D1' : ''));
     }, false);
 }
 
@@ -356,7 +356,10 @@ var tws = document.querySelectorAll('a.twitter');
 for (var i = 0; i < tws.length; i++) {
     tws[i].addEventListener('click', function(e) {
         e.preventDefault();
-        window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(TWEET_TEXT));
+        var text = TWEET_TEXT;
+        if (e.target.className.indexOf('protest') != -1)
+            text = PROTEST_TWEET_TEXT;
+        window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text));
     }, false);
 }
 
