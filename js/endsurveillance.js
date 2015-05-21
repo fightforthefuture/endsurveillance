@@ -376,8 +376,10 @@ window.onscroll = function(e) {
 }
 
 
-if (window.location.href.indexOf('call=1') != -1)
+if (window.location.href.indexOf('call=1') != -1) {
+    document.getElementById('call_heading').textContent = 'Call Congress to end the PATRIOT Act.';
     show_modal('thanks_modal');
+}
 
 if (window.location.href.indexOf('petition=1') != -1)
     show_modal('petition_modal');
