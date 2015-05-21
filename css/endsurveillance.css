@@ -359,8 +359,15 @@ section.getinvolved a {
     color: white;
     font-weight: bold;
 }
+section.getinvolved img {
+    margin-bottom: 25px;
+    max-width: 100%;
+    height: auto;
+}
 section.getinvolved img.nopad {
     display: block;
+    max-width: 100%;
+    height: auto;
     margin-left: -30px;
     margin-bottom: 40px;
     max-width: calc(100% + 60px);
