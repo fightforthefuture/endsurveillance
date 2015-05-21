@@ -403,6 +403,9 @@ section p {
     text-align: center;
     margin-bottom: 25px;
 }
+#congress {
+    border-bottom: 5px solid #ddd;
+}
 #congress table {
     width: 100%;
     border-collapse: separate;
@@ -811,8 +814,52 @@ a.social.twitter {
     line-height: 1em;
 }
 
+#legend {
+    max-width: 380px;
+    margin: 25px auto 0px auto;
+}
+#legend > strong {
+    font-weight: bold;
+}
+#legend > div {
+    margin-top: 25px;
+    padding-left: 15px;
+    line-height: 20px;
+}
+#legend > div.good {
+    border-left: 20px solid rgba(44, 188, 155, 0.5);
+}
+#legend > div.good strong {
+    color: green;
+}
+#legend > div.bad {
+    border-left: 20px solid #ff8082;
+}
+#legend > div.bad strong {
+    color: #800;
+}
+#legend > div.gray {
+    border-left: 20px solid #aaa;
+}
+#legend > div.gray strong {
+    color: #888;
+}
+
 @media screen and (max-width:1235px) {
     #toc {
         display: none;
     }
+}
+@media screen and (max-width: 680px) {
+    .overlay .gutter .modal {
+        margin-top: 0px;
+    }
+    .modal .explanation .example input {
+        width: 100%;
+        border-right: 1px solid #aaa;
+    }
+    .modal .explanation .example input.long {
+        width: 100%;
+    }
+
 }
