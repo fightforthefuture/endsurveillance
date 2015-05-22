@@ -382,6 +382,35 @@ section.getinvolved blockquote {
     text-align: left;
     word-wrap: break-word;
 }
+section.getinvolved div.organizers p {
+    margin-bottom: 0px;
+}
+section.getinvolved div.organizers img {
+    width: auto;
+    max-height: 130px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 15px;
+}
+section.getinvolved div.organizers img.narrow {
+    max-width: 400px;
+    height: auto;
+    vertical-align: middle;
+}
+section.getinvolved div.organizers div.thanks {
+}
+section.getinvolved div.organizers div.thanks ul {
+    display: inline-block;
+    margin-top: 10px;
+}
+section.getinvolved div.organizers div.thanks ul li {
+    display: inline-block;
+    margin: 0px 5px 10px 5px;
+}
+section.getinvolved div.organizers div.thanks ul li a {
+    font-weight: normal;
+    font-size: 15px;
+}
 section h2 {
     text-align: center;
     font-size: 30px;
