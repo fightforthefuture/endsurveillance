@@ -645,6 +645,7 @@ a.social::before {
 }
 a.social.donate::before {
     background: url("https://s3.amazonaws.com/fftf-cms/static/img/fav.ico");
+    background-size: 16px 16px;
     width: 16px;
     height: 16px;
     top: 7px;
