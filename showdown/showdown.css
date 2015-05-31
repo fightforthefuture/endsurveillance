@@ -17,12 +17,12 @@ body {
     width: 100%;
     background: url(background.jpg) center center no-repeat;
     text-align: center;
-    padding-top: 23px;
+    padding-top: 28px;
     box-sizing: border-box;
 }
 #showdown .arena img.contestants {
     display: block;
-    margin: 0px auto 32px auto;
+    margin: 0px auto 27px auto;
     max-width: 100%;
 }
 #showdown .border_bottom {
@@ -41,7 +41,7 @@ body {
 #showdown .video .wrapper {
     position: relative;
     /* padding-bottom: 56.25%; */
-    padding-bottom: 82%;
+    padding-bottom: 81%;
     padding-top: 25px;
     height: 0;
 }
