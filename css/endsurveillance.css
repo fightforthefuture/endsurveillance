@@ -433,7 +433,7 @@ section p {
     margin-bottom: 25px;
 }
 #congress {
-    border-bottom: 15px solid #dadada;
+    border-bottom: 15px solid #000;
 }
 #congress table {
     width: 100%;
