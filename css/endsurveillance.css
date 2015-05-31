@@ -55,7 +55,7 @@ html {
     overflow: -moz-scrollbars-vertical;
 }
 body {
-    background: #fff url(../images/constitution.jpg) center top no-repeat;
+    background: #000 url(../images/constitution2.jpg) center top no-repeat;
     background-size: 100% auto;
     font-family: 'Proxima Nova';
     background-position: center -50px;
@@ -320,7 +320,7 @@ section {
 }
 section#askthem {
     padding-top: 35px;
-    background: #844;
+    background: #642B17;
     color: white;
     margin-bottom: 15px;
     text-align: center;
