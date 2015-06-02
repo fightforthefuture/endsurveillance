@@ -170,12 +170,13 @@ body.cta {
 }
 body.cta #cta {
     display: block;
+    margin-bottom: 30px;
 }
 body.cta header {
     margin-top: 0px;
 }
 body.cta #toc {
-    top: 432px;
+    /*top: 432px;*/
 }
 body.cta strong {
     font-weight: 500;
