@@ -222,8 +222,7 @@ document.querySelector('#cta form').addEventListener('submit', function(e) {
     data.append('action_comment', 'It\'s an outrage that taxpayer funds are being used to fund a fleet of spy planes operated by the FBI and used to engage in mass surveillance of potentially hundreds of thousands of innocent Americans. These planes have been spotted over the Mall of America, where the FBI has used counterterrorism authorities to investigate political protestors for the #BlackLivesMatter movement. It is unacceptable to use resources meant to stop terrorists to track political activists. Congress should put an end to this unconstitutional violation of civil rights immediately.\n\nPlease overturn Section 215 of the PATRIOT Act and Section 702 of the Foreign Intelligence Surveillance Act. These legal rules have been twisted by government agencies to allow mass spying of U.S. citizens without a warrant or any suspicion of wrongdoing. The so-called USA FREEDOM Act would only make matters worse, by creating new legal loopholes for the NSA and law enforcement agencies to collect even more data on millions of Americans. I am calling on you to oppose the USA FREEDOM Act, let the PATRIOT Act expire, and end mass surveillance by the U.S. government.');
     data.append('subject', 'Ground the FBI\'s fleet of domestic spy planes.');
     data.append('org', 'fftf');
-    data.append('subject', 'endsurveillance');
-    data.append('tag', 'endsurveillance');
+    data.append('tag', 'endsurveillance-spyplane');
 
     var url = 'https://queue.fightforthefuture.org/action';
     show_modal('thanks_modal');
