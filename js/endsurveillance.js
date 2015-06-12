@@ -1,194 +1,3 @@
-// Check for outdated browsers
-(function() {
-    var isIE = navigator.userAgent.match(/MSIE (\d+)\./);
-    if (isIE) {
-        var version = +isIE[1];
-        if (version < 10) {
-            alert('Unfortunately your browser, Internet Explorer ' + version + ', is not supported.\nPlease visit the site with a modern browser like Firefox or Chrome.\nThanks!');
-        }
-    }
-
-    if (navigator.userAgent.match(/Android 2\.3/)) {
-        alert('Unfortunately your browser, Android 2.3, is not supported.\nPlease visit the site with a modern browser like Firefox or Chrome.\nThanks!');
-    }
-})();
-
-
-
-var url = 'https://spreadsheets.google.com/feeds/list/1mlikLyRrxlJDiPanWKLXbp6sUvRRsN8P_D1yWGZVc-k/default/public/values?alt=json';
-
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4)
-    {
-        var res = JSON.parse(xhr.response);
-
-        var politicians = [];
-
-        for (var i=0; i < res.feed.entry.length; i++) {
-            var entry = res.feed.entry[i];
-            politicians.push({
-                first_name:         entry['gsx$first']['$t'].trim(),
-                last_name:          entry['gsx$name']['$t'].trim(),
-                image:              entry['gsx$imagepleasedontedit']['$t'].trim(),
-                bioguide:           entry['gsx$bioguide']['$t'].trim(),
-                email:              entry['gsx$email']['$t'].trim(),
-                phone:              entry['gsx$phone']['$t'].trim(),
-                comments:           entry['gsx$comments']['$t'].trim(),
-                organization:       entry['gsx$organization']['$t'].trim(),
-                state:              entry['gsx$state']['$t'].trim(),
-                status:             entry['gsx$status']['$t'].trim(),
-                twitter:            entry['gsx$twitter']['$t'].trim(),
-                support_reauth:     entry['gsx$supportreauth']['$t'].trim(),
-                support_tmp_reauth: entry['gsx$supporttempreauth']['$t'].trim(),
-                support_usaf:       entry['gsx$supportusaf']['$t'].trim(),
-            });
-        }
-        var compare = function(a,b) {
-            if (a.state < b.state)
-                return -1;
-            else if (a.state > b.state)
-                return 1;
-            return 0;
-        }
-        politicians.sort(compare);
-        // console.log(politicians);
-
-        for (var i = 0; i < politicians.length; i++) {
-            addPolitician(politicians[i]);
-        }
-    }
-}.bind(this);
-xhr.open("get", url, true);
-xhr.send();
-
-var addPolitician = function(data) {
-    var tr = document.createElement('tr');
-
-    var td1 = document.createElement('td');
-
-    if (data.support_usaf.toLowerCase() == 'yes' || data.support_usaf.toLowerCase() == 'lean yes' || data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_tmp_reauth.toLowerCase() == 'lean yes' || data.support_reauth.toLowerCase() == 'yes' || data.support_reauth.toLowerCase() == 'lean yes') {
-        td1.className = 'bad';
-    } else if (data.support_tmp_reauth.toLowerCase() == 'no' && data.support_reauth.toLowerCase() == 'no') {
-        td1.className = 'good';
-    } else if (
-        ((data.support_usaf.toLowerCase() == 'no' || data.support_usaf.toLowerCase() == 'lean no') && data.support_reauth.toLowerCase() != 'yes' && data.support_reauth.toLowerCase() != 'lean yes' && data.support_tmp_reauth.toLowerCase() != 'yes' && data.support_tmp_reauth.toLowerCase() != 'lean yes')
-        ||
-        (data.support_usaf.toLowerCase() != 'yes' && data.support_usaf.toLowerCase() != 'lean yes' && (data.support_reauth.toLowerCase() == 'no' || data.support_reauth.toLowerCase() == 'lean no' || data.support_tmp_reauth.toLowerCase() == 'no' || data.support_tmp_reauth.toLowerCase() == 'lean no'))
-    ) {
-        td1.className = 'good';
-    }
-    td1.style.backgroundImage = 'url(congress/'+data.image+')';
-    var a = document.createElement('a');
-    a.href = 'https://www.congress.gov/member/senator/'+data.bioguide;
-    a.target = '_blank';
-    var strong  = document.createElement('strong');
-    strong.textContent = data.first_name + ' ' + data.last_name;
-    a.appendChild(strong);
-    if (td1.className == 'good') {
-        var img = document.createElement('img');
-        img.src = 'images/star.png';
-        td1.appendChild(img);
-    }
-    td1.appendChild(a);
-    tr.appendChild(td1);
-
-    var td2 = document.createElement('td');
-    td2.className = 'state';
-    td2.textContent = data.state;
-    tr.appendChild(td2);
-
-    var td4 = document.createElement('td');
-    td4.className = 'endorse';
-    var textContent = '';
-    if (data.support_tmp_reauth.toLowerCase() == 'yes' || data.support_tmp_reauth.toLowerCase() == 'lean yes' || data.support_reauth.toLowerCase() == 'yes'|| data.support_reauth.toLowerCase() == 'lean yes') {
-        td4.className = 'bad';
-        var textContent = 'YES';
-    } else if ((data.support_tmp_reauth.toLowerCase() == 'no' || data.support_tmp_reauth.toLowerCase() == 'lean no') && (data.support_reauth.toLowerCase() == 'no' || data.support_reauth.toLowerCase() == 'lean no')) {
-        td4.className = 'good';
-        var textContent = 'NO';
-    }
-    var em = document.createElement('em');
-    em.textContent = textContent;
-    td4.appendChild(em);
-    if (textContent) {
-        var span = document.createElement('span');
-        span.textContent = 'on renewing PATRIOT Act';
-        td4.appendChild(span);
-    }
-    tr.appendChild(td4);
-
-    var td3 = document.createElement('td');
-    td3.className = 'endorse';
-    if (data.support_usaf.toLowerCase() == 'yes')
-        td3.className = 'bad';
-    else if (data.support_usaf.toLowerCase() == 'lean yes')
-        td3.className = 'halfbad';
-    else if (data.support_usaf.toLowerCase() == 'no')
-        td3.className = 'good';
-    else if (data.support_usaf.toLowerCase() == 'lean no')
-        td3.className = 'halfgood';
-    var em2 = document.createElement('em');
-    em2.textContent = data.support_usaf.toUpperCase().replace('LEAN', 'LEANS');
-    td3.appendChild(em2);
-    if (data.support_usaf) {
-        var span2 = document.createElement('span');
-        var iem2 = document.createElement('em');
-        iem2.textContent = 'on ';
-        span2.appendChild(iem2);
-        var ia2 = document.createElement('a');
-        ia2.href = '#usaf';
-        ia2.textContent = 'USA Freedom Act';
-        span2.appendChild(ia2);
-        td3.appendChild(span2);
-    }
-    tr.appendChild(td3);
-
-    if (!data.phone)
-        var phone = '202-224-3121';
-    else
-        var phone = data.phone
-
-    var td5 = document.createElement('td');
-    var ul = document.createElement('ul');
-    var li1 = document.createElement('li');
-    var a1 = document.createElement('a');
-    a1.href = 'tel://' + phone;
-    a1.textContent = phone;
-    li1.appendChild(a1);
-    ul.appendChild(li1);
-
-    if (data.twitter) {
-        var li3 = document.createElement('li');
-        var a3 = document.createElement('a');
-        a3.href = 'https://twitter.com/' + data.twitter;
-        a3.textContent = '@' + data.twitter;
-        a3.target = '_blank';
-        li3.appendChild(a3);
-        ul.appendChild(li3);
-
-        a3.addEventListener('click', function(e) {
-            e.preventDefault();
-            var username = a3.href.substr(20);
-            window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(".@"+username+TWEET_TO_TEXT));
-        }, false);
-    }
-
-    if (data.email) {
-        var li2 = document.createElement('li');
-        var a2 = document.createElement('a');
-        a2.href = data.email;
-        a2.textContent = 'Email';
-        a2.target = '_blank';
-        li2.appendChild(a2);
-        ul.appendChild(li2);
-    }
-
-    td5.appendChild(ul);
-    tr.appendChild(td5);
-    document.getElementById('table').appendChild(tr);
-}
-
 document.querySelector('#cta form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -278,9 +87,9 @@ document.querySelector('#call').addEventListener('submit', function(e) {
     xhr.open("post", url, true);
     xhr.send(data);
     
-    window.location.href = '#askthem';
     document.getElementById('phone_cta').style.display = 'none';
     document.getElementById('calling').style.display = 'block';
+    show_modal('calling_modal');
 
 }, false);
 
@@ -395,7 +204,7 @@ window.onscroll = function(e) {
 
 
 if (window.location.href.indexOf('call=1') != -1) {
-    document.getElementById('call_heading').textContent = 'Call Congress to end the PATRIOT Act.';
+    document.getElementById('call_heading').textContent = 'Call Congress to end mass surveillance.';
     show_modal('thanks_modal');
 }
 

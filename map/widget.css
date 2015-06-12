@@ -1,0 +1,228 @@
+#map-gutter {
+    padding: 0px 15px;
+}
+#map-canvas {
+    max-width: 800px;
+    margin: 25px auto 0px auto;
+    height: 350px;
+}
+#select_region {
+    text-align: center;
+}
+#map-canvas .infowindow h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    text-align: left;
+    padding: 0px;
+    margin: 0px 0px 4px 0px;
+}
+#map-canvas .infowindow p {
+    padding: 0px;
+    margin: 0px;
+    color: black;
+    font-size: 15px;
+    text-align: left;
+    line-height: 21px;
+}
+#map-canvas .infowindow button {
+    display: inline-block;
+    text-decoration: none;
+    border: 0px;
+    background: #fe4b60;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 0px;
+    border-radius: 5px;
+    padding: 0px 15px;
+}
+#map-canvas .infowindow button:hover {
+    background: #ee3b50;
+}
+label.choose_state {
+    color: white;
+    margin-right: 10px;
+}
+#choose_state {
+    font-size: 22px;
+    padding: 0px 5px;
+}
+.states > div {
+    display: none;
+}
+.states > div.visible {
+    display: block;
+}
+.senators {
+    
+}
+.senators > div {
+    width: 320px;
+    height: 180px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 25px 15px 0px 48px;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 10px;
+    background: #111;
+    padding-left: 160px;
+}
+.senators > div .img {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    width: 143px;
+    height: 180px;
+    background-size: auto 180px;
+    background-position: center center;
+    border-radius: 10px;
+}
+.senators > div .img ul {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 30px 0px 15px 10px;
+
+    -webkit-transition: background 0.4s ease-out;
+            transition: background 0.4s ease-out;
+
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.senators > div .img ul:hover {
+    background: rgba(0, 0, 0, .5);
+}
+.senators > div .img ul li {
+    text-align: left;
+    font-size: 25px;
+    margin-left: -38px;
+    padding: 0px 0px 10px 0px;
+    -webkit-transition: margin-left 0.4s ease-out;
+            transition: margin-left 0.4s ease-out;
+}
+.senators > div .img ul:hover li {
+    margin-left: -38px;
+}
+.senators > div .img ul li a {
+    color: white;
+    opacity: .85;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.senators > div .img ul li a:hover {
+    opacity: 1;
+}
+.senators > div .img ul li a span {
+    font-size: 15px;
+    vertical-align: middle;
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-out;
+            transition: opacity 0.4s ease-out;
+}
+.senators > div .img ul:hover li a span {
+    opacity: 1;
+}
+.senators > div .img ul li i {
+    margin: 0px 24px 0px 0px;
+    color: #222;
+    text-shadow: 0px;
+    -webkit-transition: opacity 0.4s ease-out;
+        transition: opacity 0.4s ease-out;
+}
+.senators > div .img ul:hover li i {
+    /*opacity: 0;*/
+}
+.senators > div .img ul li .fa-envelope {
+    font-size: .85em;
+}
+.senators > div.bad .img {
+    background-color: #ff8082;
+    background-blend-mode: multiply;
+    -moz-background-blend-mode: multiply;
+    -webkit-background-blend-mode: multiply;
+}
+.senators > div.good .img {
+    background-color: rgba(44, 188, 155, 0.5);
+    background-blend-mode: multiply;
+    -moz-background-blend-mode: multiply;
+    -webkit-background-blend-mode: multiply;
+}
+.senators > div h4 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    font-size: 14px;
+    color: white;
+    padding: 5px 0px;
+    margin: 0px;
+    background: rgba(0, 0, 0, .5);
+    text-align: center;
+    font-weight: bold;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.senators > div.bad h4 {
+    /* background: #300; */
+}
+.senators > div.good h4 {
+    /* background: #032; */
+}
+.senators > div ul.votes {
+    position: absolute;
+    bottom: 10px;
+}
+.senators > div ul.votes li {
+    font-size: 15px;
+    color: white;
+    padding: 5px 0px 5px 25px;
+    text-align: left;
+}
+.senators > div ul.votes li.bad {
+    background: url(/images/bad.png) left center no-repeat;
+}
+.senators > div ul.votes li.bad a {
+    
+}
+.senators > div ul.votes li.good {
+    background: url(/images/neutral.png) left center no-repeat;   
+}
+.senators > div ul.votes li.good a {
+    
+}
+.senators > div ul.votes li:last-child {
+
+}
+
+.senators > div .explanation {
+    
+    
+    text-align: left;
+    padding: 10px 10px 0px 0px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #cecece;
+}
+.senators > div .explanation a {
+    color: black;
+    font-weight: 500;
+}
