@@ -1,0 +1,266 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+/* --- end public domain code --- */
+.clear:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clear {display: inline-block;}
+/* hide IE mac \*/
+* html .clear {height: 1%;}
+.clear {display: block;}
+/* */
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Proxima Nova Light'), local('Proxima-Nova-Light'), url(../fonts/proximanova-light-webfont.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Proxima Nova Regular'), local('Proxima-Nova-Regular'), url(../fonts/proximanova-regular-webfont.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Proxima Nova Semibold'), local('Proxima-Nova-Semibold'), url(../fonts/proximanova-semibold-webfont.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Proxima Nova Bold'), local('Proxima-Nova-Bold'), url(../fonts/proximanova-bold-webfont.woff) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Proxima Nova';
+}
+strong {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+
+section.top {
+    text-align: center;
+}
+
+.cta {
+    display: inline-block;
+    max-width: 500px;
+    padding: 1.2em;
+    background: #ddf;
+    vertical-align: top;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+.cta h2 {
+    font-size: 1.8em;
+    font-weight: 500;
+    margin-bottom: .5em;
+}
+.cta h3 {
+    font-size: 1.8em;
+    font-weight: 300;
+    margin-bottom: .5em;
+}
+.cta h4 {
+    font-weight: 500;
+    margin-bottom: .5em;
+}
+.cta p {
+    font-size: 1.2em;
+    line-height: 1.1em;
+    margin-bottom: 1em;
+}
+.cta p.disclosure {
+    margin-bottom: 0em;
+    margin-top: 1em;
+    font-size: 1em;
+    line-height: 1.2em;
+}
+.cta input {
+    width: 50%;
+    padding: 0px 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.1em;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+    border-bottom: 0px none;
+    border-right: 0px none;
+}
+.cta input:nth-child(even) {
+    border-right: 1px solid gray;
+}
+.cta textarea {
+    border: 1px solid gray;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 1em;
+}
+.cta button {
+    box-sizing: border-box;
+    height: 50px;
+    border: 0px none transparent;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 0px 15px;
+    background-color: #1DAC7F;
+    cursor: pointer;
+    margin: 0px 5px;
+}
+.cta button:hover {
+    background-color: #0D9C6F;
+}
+.scorecard {
+    display: inline-block;
+    vertical-align: top;
+    width: 700px;
+    background: #ddd;
+    padding: 20px;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+.scorecard h2 {
+    
+    font-size: 1.8em;
+    font-weight: 500;
+    margin-bottom: .5em;
+}
+
+
+.overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, .5);
+    display: none;
+    z-index: 9001;
+
+    -webkit-transition: opacity 0.4s ease-out;
+            transition: opacity 0.4s ease-out;
+}
+.overlay.invisible {
+    pointer-events: none;
+    opacity: 0;
+
+    -webkit-transition: opacity 0.4s ease-out;
+            transition: opacity 0.4s ease-out;
+}
+.overlay .gutter {
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+
+    -webkit-transition: margin-top 0.4s ease-out;
+            transition: margin-top 0.4s ease-out;
+}
+.overlay.invisible .gutter {
+    margin-top: -100%;
+}
+.overlay .gutter .modal {
+    display: inline-block;
+    max-width: 600px;
+    background: white;
+    color: black;
+    margin: 0px auto;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+
+    margin-top: 50px;
+    border-radius: 10px;
+    /*
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+    */
+
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, .3);
+
+}
+
+.overlay .gutter .modal img.logo {
+    display: block;
+    margin: 0px auto .5em auto;
+}
+.overlay .gutter .modal h2 {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1.2em;
+    color: gray;
+}
+.overlay .gutter .modal h3 {
+    font-weight: bold;
+    margin-bottom: 1.2em;
+}
+.overlay .gutter .modal a.close {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    color: black;
+    opacity: .4;
+    text-decoration: none;
+    font-size: 30px;
+}
+.overlay .gutter .modal a.close:hover {
+    opacity: .6;
+}
+.overlay .gutter .modal blockquote {
+    font-family: Georgia, serif;
+    line-height: 1.3em;
+    font-size: 1.3em;
+    margin-bottom: 1.2em;
+    color: gray;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .overlay .gutter .modal {
+        margin-top: 0px;
+    }
+}
